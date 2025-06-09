@@ -2,7 +2,9 @@
 
 S3method(as.data.frame,freq_y2)
 S3method(dplyr::as_tibble,freq_y2)
+S3method(dplyr::dplyr_col_modify,grouped_freq_y2)
 S3method(dplyr::group_by,freq_y2)
+S3method(dplyr::ungroup,grouped_freq_y2)
 S3method(pillar::format_footer_advice,freq_y2)
 S3method(pillar::tbl_format_footer,freq_y2)
 S3method(pillar::tbl_format_header,freq_y2)

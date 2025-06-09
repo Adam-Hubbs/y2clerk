@@ -25,11 +25,7 @@ print_freq_inf <- function() {
 
 #' @exportS3Method pillar::tbl_sum
 tbl_sum.freq_y2 <- function(x, ...) {
-  header <- c(`A frequency tibble` = pillar::dim_desc(x))
-  if('grouped_df' %in% class(x)) {
-    header <- c(header, c(Groups = dplyr:::group_sum(x)))
-  }
-  return(header)
+  c(`A frequency tibble` = pillar::dim_desc(x))
 }
 
 
