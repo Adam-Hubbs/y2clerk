@@ -786,7 +786,7 @@ base_ns <- function(dataset, variable, weight) {
     dplyr::count(!!variable, wt = !!weight, .drop = TRUE) %>%
     dplyr::rename(value = !!variable) %>%
     dplyr::mutate(
-      variable = dplyr::quo_name(variable)
+      variable = rlang::as_label(variable)
     )
 }
 
