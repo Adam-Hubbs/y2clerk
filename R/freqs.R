@@ -781,12 +781,13 @@ unlabelled_ns <- function(dataset, variable, weight, prompt) {
 }
 
 base_ns <- function(dataset, variable, weight) {
+  variable_label <- rlang::as_label(variable)
   dataset %>%
     # When wt is NULL, it runs unweighted counts
     dplyr::count(!!variable, wt = !!weight, .drop = TRUE) %>%
     dplyr::rename(value = !!variable) %>%
     dplyr::mutate(
-      variable = rlang::as_label(variable)
+      variable = variable_label
     )
 }
 
