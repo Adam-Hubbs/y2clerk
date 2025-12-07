@@ -783,7 +783,7 @@ unlabelled_ns <- function(dataset, variable, weight, prompt) {
 base_ns <- function(dataset, variable, weight) {
   dataset %>%
     # When wt is NULL, it runs unweighted counts
-    dplyr::count(!!variable, wt = !!weight, .drop = FALSE) %>%
+    dplyr::count(!!variable, wt = !!weight, .drop = TRUE) %>%
     dplyr::rename(value = !!variable) %>%
     dplyr::mutate(
       variable = dplyr::quo_name(variable)

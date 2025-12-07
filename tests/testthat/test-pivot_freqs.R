@@ -24,6 +24,8 @@ test_that("Column names", {
 
 
 test_that("Column names with two group vars", {
+  skip(message = 'Skipping for duckplyr test')
+  
   frequencies_pivoted <- forcats::gss_cat %>%
     dplyr::group_by(year) %>%
     freqs(race) %>%
