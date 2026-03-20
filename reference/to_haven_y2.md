@@ -21,12 +21,12 @@ to_haven_y2(variable)
 
 ``` r
 test <- tibble::tibble(
-  color_factor = c('Blue', 'Blue', 'Red', 'Yellow') %>%
+  color_factor = c('Blue', 'Blue', 'Red', 'Yellow') |>
     forcats::as_factor()
 )
 
 test$color <- to_haven_y2(test$color_factor)
-test <- test %>%
+test <- test |>
   dplyr::mutate(
     color = to_haven_y2(color_factor)
   )

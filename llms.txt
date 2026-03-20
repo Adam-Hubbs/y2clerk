@@ -3,7 +3,7 @@
 ## Overview
 
 y2clerk exists to quickly create formatted frequencies tables. It
-leverages the tidyverse, allowing the user to `%>%` in data frames,
+leverages the tidyverse, allowing the user to `|>` in data frames,
 [`select()`](https://dplyr.tidyverse.org/reference/select.html) down to
 lists of variables,
 [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)
@@ -74,7 +74,7 @@ freqs(df, a, b)
 #> 8         b     3     3 1 percent   0.14
 #> 9         b     4     4 1 percent   0.14
 #> 10        b  <NA>  <NA> 1 percent   0.14
-df %>% freqs(a, b, wt = weights)
+df |> freqs(a, b, wt = weights)
 #>    variable value label   n    stat result
 #> 1         a     1     1 0.9 percent   0.13
 #> 2         a     2     2 3.0 percent   0.43
@@ -99,7 +99,7 @@ freqs(df, stat = 'mean', nas = FALSE, wt = weights)
 #>   <chr>    <chr> <chr> <dbl> <chr>            <dbl>
 #> 1 a        ""    ""        6 mean - weighted   2.37
 #> 2 b        ""    ""        6 mean - weighted   2.2
-df %>% group_by(a) %>% freqs(b, stat = 'mean', nas = FALSE, wt = weights)
+df |> group_by(a) |> freqs(b, stat = 'mean', nas = FALSE, wt = weights)
 #> Adding missing grouping variables: `a`
 #> Adding missing grouping variables: `a`
 #> # A tibble: 4 x 7

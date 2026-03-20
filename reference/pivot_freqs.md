@@ -29,9 +29,9 @@ A wide tibble of frequencies with one row for each group (by default)
 ## Examples
 
 ``` r
-  frequencies <- forcats::gss_cat %>%
-    dplyr::group_by(year) %>%
-      y2clerk::freqs(marital) %>%
+  frequencies <- forcats::gss_cat |>
+    dplyr::group_by(year) |>
+      y2clerk::freqs(marital) |>
       pivot_freqs()
 #> Adding missing grouping variables: `year`
 ```

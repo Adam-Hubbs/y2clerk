@@ -54,7 +54,7 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>y2clerk exists to quickly create formatted frequencies tables. It leverages the tidyverse, allowing the user to <code>%&gt;%</code> in data frames, <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select()</a></code> down to lists of variables, <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code> others, and include weights for the frequencies. There are two main functions in y2clerk:</p>
+<p>y2clerk exists to quickly create formatted frequencies tables. It leverages the tidyverse, allowing the user to <code>|&gt;</code> in data frames, <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select()</a></code> down to lists of variables, <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code> others, and include weights for the frequencies. There are two main functions in y2clerk:</p>
 <ul>
 <li>
 <code><a href="reference/freqs.html">freqs()</a></code> - creates a frequency table including both ns and percentages for each level of a variable or list of variables. <code><a href="reference/freqs.html">freqs()</a></code> is flexible and can also be used for calculating means, medians, or other quartiles while including weighting variables.</li>
@@ -109,7 +109,7 @@
 <span><span class="co">#&gt; 8         b     3     3 1 percent   0.14</span></span>
 <span><span class="co">#&gt; 9         b     4     4 1 percent   0.14</span></span>
 <span><span class="co">#&gt; 10        b  &lt;NA&gt;  &lt;NA&gt; 1 percent   0.14</span></span>
-<span><span class="va">df</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="reference/freqs.html">freqs</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, wt <span class="op">=</span> <span class="va">weights</span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="reference/freqs.html">freqs</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, wt <span class="op">=</span> <span class="va">weights</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    variable value label   n    stat result</span></span>
 <span><span class="co">#&gt; 1         a     1     1 0.9 percent   0.13</span></span>
 <span><span class="co">#&gt; 2         a     2     2 3.0 percent   0.43</span></span>
@@ -134,7 +134,7 @@
 <span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;</span></span>
 <span><span class="co">#&gt; 1 a        ""    ""        6 mean - weighted   2.37</span></span>
 <span><span class="co">#&gt; 2 b        ""    ""        6 mean - weighted   2.2</span></span>
-<span><span class="va">df</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="reference/freqs.html">freqs</a></span><span class="op">(</span><span class="va">b</span>, stat <span class="op">=</span> <span class="st">'mean'</span>, nas <span class="op">=</span> <span class="cn">FALSE</span>, wt <span class="op">=</span> <span class="va">weights</span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="reference/freqs.html">freqs</a></span><span class="op">(</span><span class="va">b</span>, stat <span class="op">=</span> <span class="st">'mean'</span>, nas <span class="op">=</span> <span class="cn">FALSE</span>, wt <span class="op">=</span> <span class="va">weights</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Adding missing grouping variables: `a`</span></span>
 <span><span class="co">#&gt; Adding missing grouping variables: `a`</span></span>
 <span><span class="co">#&gt; # A tibble: 4 x 7</span></span>

@@ -87,7 +87,7 @@ df <- data.frame(
   Q1_2 = c(1, 1, NA, 1, NA, 1, NA),
   Q1_3 = c(NA, 1, 1, NA, 4, 1, NA),
   weights = c(0.9, 0.9, 1.1, 1.1, 1, 1, 1)
-) %>%
+) |>
   tidyr::as_tibble()
 
 
@@ -101,7 +101,7 @@ multi_freqs(df, Q1_1)
 #> 2 Q1_2     1     1         4 percent   0.67
 #> 3 Q1_3     1     1         3 percent   0.5 
 #> 4 Q1_3     4     4         1 percent   0.17
-df %>% multi_freqs(Q1_1)
+df |> multi_freqs(Q1_1)
 #> Variable stem "Q1" successfully freq'd
 #> # A frequency tibble: 4 × 6
 #>   variable value label     n stat    result
@@ -110,8 +110,8 @@ df %>% multi_freqs(Q1_1)
 #> 2 Q1_2     1     1         4 percent   0.67
 #> 3 Q1_3     1     1         3 percent   0.5 
 #> 4 Q1_3     4     4         1 percent   0.17
-df %>%
-  dplyr::select(dplyr::starts_with("Q1")) %>%
+df |>
+  dplyr::select(dplyr::starts_with("Q1")) |>
   multi_freqs()
 #> Variable stem "Q1" successfully freq'd
 #> # A frequency tibble: 4 × 6
@@ -124,8 +124,8 @@ df %>%
 
 
 # Grouped examples with weights (both have same outputs)
-df %>%
-  dplyr::group_by(a) %>%
+df |>
+  dplyr::group_by(a) |>
   multi_freqs(Q1_1, wt = weights)
 #> Adding missing grouping variables: `a`
 #> Adding missing grouping variables: `a`
@@ -144,9 +144,9 @@ df %>%
 #> 6         2 Q1_3     1     1       0.9 percent   0.47
 #> 7         2 Q1_3     4     4       1   percent   0.53
 #> 8         3 Q1_3     1     1       2.1 percent   1   
-df %>%
-  dplyr::group_by(a) %>%
-  dplyr::select(starts_with("Q1"), weights) %>%
+df |>
+  dplyr::group_by(a) |>
+  dplyr::select(starts_with("Q1"), weights) |>
   multi_freqs(wt = weights)
 #> Adding missing grouping variables: `a`
 #> Adding missing grouping variables: `a`

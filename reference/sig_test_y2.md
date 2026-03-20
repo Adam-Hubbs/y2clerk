@@ -76,14 +76,14 @@ df <- data.frame(
 
 # Frequencies
 
-frequencies <- df %>%
-  dplyr::group_by(group) %>%
+frequencies <- df |>
+  dplyr::group_by(group) |>
   freqs(V1)
 #> Adding missing grouping variables: `group`
 
 # Frequencies with significance tests
 
-tested_freqs <- frequencies %>%
+tested_freqs <- frequencies |>
   sig_test_y2(dataset = df,
               banner_var = group)
 #> Adding grouped pairwise significance tests for response "Agree" for group_var "group"
@@ -92,7 +92,7 @@ tested_freqs <- frequencies %>%
 
 # Tested frequencies in crosstab format
 
-tested_freqs <- frequencies %>%
+tested_freqs <- frequencies |>
   sig_test_y2(dataset = df,
               banner_var = group,
               layout = 'wide')
@@ -102,10 +102,10 @@ tested_freqs <- frequencies %>%
 
 # Weighted tested frequencies
 
-tested_freqs <- df %>%
-  dplyr::group_by(group) %>%
+tested_freqs <- df |>
+  dplyr::group_by(group) |>
   freqs(V1,
-        wt = weight) %>%
+        wt = weight) |>
   sig_test_y2(dataset = df,
               banner_var = group,
               wt = weight)
@@ -116,10 +116,10 @@ tested_freqs <- df %>%
 
 # Weighted tested frequencies in crosstab format
 
-tested_freqs <- df %>%
-  dplyr::group_by(group) %>%
+tested_freqs <- df |>
+  dplyr::group_by(group) |>
   freqs(V1,
-        wt = weight) %>%
+        wt = weight) |>
   sig_test_y2(dataset = df,
               banner_var = group,
               wt = weight,

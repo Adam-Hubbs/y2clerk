@@ -147,7 +147,7 @@ df <- data.frame(
     size = 200,
     replace = TRUE
   )
-) %>%
+) |>
   labelled::set_value_labels(
     brand1_NPS_GROUP = c(
       'Promoter' = 3,
@@ -164,16 +164,16 @@ df <- data.frame(
       'Passive' = 2,
       'Detractor' = 1
     )
-  ) %>%
+  ) |>
   labelled::set_variable_labels(
     brand1_NPS_GROUP = "How likely are you to recommend Brand1 to a friend or colleague? - Group",
     brand2_NPS_GROUP = "How likely are you to recommend Brand2 to a friend or colleague? - Group",
     brand3_NPS_GROUP = "How likely are you to recommend Brand3 to a friend or colleague? - Group"
-  ) %>%
+  ) |>
   tidyr::as_tibble()
 
 # Frequencies
-frequencies <- df %>%
+frequencies <- df |>
   freqs(
     brand1_NPS_GROUP,
     brand2_NPS_GROUP,

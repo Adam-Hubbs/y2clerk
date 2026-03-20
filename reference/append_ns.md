@@ -34,8 +34,8 @@ append_ns(dataset, append_to = label, by_group_var = FALSE, newline = FALSE)
 
 ``` r
 # by_group_var = FALSE
-ToothGrowth %>%
-  freqs(supp) %>%
+ToothGrowth |>
+  freqs(supp) |>
   append_ns()
 #> # A frequency tibble: 2 × 6
 #>   variable value label           n stat    result
@@ -43,9 +43,9 @@ ToothGrowth %>%
 #> 1 supp     1     OJ (n = 30)    30 percent    0.5
 #> 2 supp     2     VC (n = 30)    30 percent    0.5
 
-ToothGrowth %>%
-  dplyr::group_by(supp) %>%
-  freqs(dose) %>%
+ToothGrowth |>
+  dplyr::group_by(supp) |>
+  freqs(dose) |>
   append_ns(newline = TRUE)
 #> Adding missing grouping variables: `supp`
 #> # A tibble: 6 × 7
@@ -60,9 +60,9 @@ ToothGrowth %>%
 #> 6 VC        dose     2     "2\n(n = 10)"      10 percent   0.33
 
 # by_group_var = TRUE
-ToothGrowth %>%
-  dplyr::group_by(supp) %>%
-  freqs(dose) %>%
+ToothGrowth |>
+  dplyr::group_by(supp) |>
+  freqs(dose) |>
   append_ns(
     append_to = group_var,
     by_group_var = TRUE

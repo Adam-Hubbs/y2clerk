@@ -111,16 +111,16 @@ stats, and resulting calculations, split out by subgroups (group_vars).
 
 ``` r
 GROUP_VARS <-
-  mtcars %>%
+  mtcars |>
   dplyr::select(
     am,
     vs
-  ) %>%
+  ) |>
   names()
 
 GROUP_VARS <- c("am", "vs")
 
-mtcars %>% cross_freqs(
+mtcars |> cross_freqs(
   group_vars = GROUP_VARS,
   gear,
   carb
